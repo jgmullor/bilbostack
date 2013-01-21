@@ -1,0 +1,39 @@
+{% extends 'layout.twig' %}
+
+{% block body_class 'single single-speakers' %}
+{% block titulo ponente.nombre %}
+
+{% block contenido %}
+<div id="core" class="container clearfix">
+    <div id="primary-content" class="clearfix">
+        <div class="speaker-single-thumb">
+            <img width="150" height="150" src="/img/{{ ponente.slug }}.png" class="attachment-speaker-image wp-post-image" alt="{{ ponente.nombre }}" title="{{ ponente.nombre }}">
+        </div>
+
+        <h1>{{ ponente.nombre }}</h1>
+        {{ ponente.biografia|raw }}
+        
+        <p><span class="fuente_sucharla"><strong><a title="Track {{ ponente.ponencia.track }} — / {{ ponente.ponencia.empieza }} – {{ ponente.ponencia.termina }} /" href="{{ path('ponencia', { 'slug': ponente.ponencia.slug }) }}">¡ Su charla !</a></strong></span></p>
+
+        <h4>Enlaces</h4>
+
+        {% if ponente.enlaces.web_personal is not empty %}
+        <p>
+            <strong>Web personal:</strong><br>
+            
+            {% for url in ponente.enlaces.web_personal %}
+            <a href="{{ url }}" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','{{ url }}']);" target="_blank">{{ url|trim('http://') }}</a>
+            <br>
+            {% endfor %}
+        </p>
+        {% endif %}
+
+        <p>
+            {% for nick in ponente.enlaces.twitter %}
+            <a class="twitter-follow-button" href="http://twitter.com/{{ nick }}" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://twitter.com']);" data-show-count="false" data-lang="es">Seguir a @{{ nick }}</a>
+            <br>
+            {% endfor %}
+        </p>
+    </div><!-- end #primary-content -->
+</div><!-- end #core -->
+{% endblock %}

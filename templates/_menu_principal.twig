@@ -1,0 +1,12 @@
+<ul id="{{ id|default('primarymenu') }}" class="{{ clase_css|default('menu') }}">
+{% for ruta, titulo in {
+    'portada': 'Home',
+    'agenda': 'Agenda',
+    'localizacion': 'Localización / Mapas',
+    'comer': '¿Dónde comer?'
+} %}
+    <li id="menu-item-{{ loop.index }}" class="menu-item menu-item-type-post_type menu-item-object-page page_item {% if app.request.attributes.get('_route')|default('portada') == ruta %}current-menu-item current_page_item{% endif %}">
+        <a href="{{ path(ruta) }}">{{ titulo }}</a>
+    </li>
+{% endfor %}
+</ul>

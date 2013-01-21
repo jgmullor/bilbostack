@@ -1,0 +1,8 @@
+/vendor/
+/cache/
+!/cache/.keep
+/logs/
+!/logs/.keep
+composer.lock
+
+.DS_Store

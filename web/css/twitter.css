@@ -1,0 +1,44 @@
+/* Twitter widget*/
+.widget_twitter div {
+    padding:0;
+}
+
+.widget_twitter ul li {
+    margin-bottom:5px;
+}
+
+.widget_twitter .follow-button,
+.widget_twitter .xavisys-link {
+    margin:0 10px 10px 25px;
+}
+
+.widget_twitter .entry-meta {
+    display:block;
+    font-size:80%;
+}
+
+.widget_twitter .intent-meta a {
+    background: url(https://si0.twimg.com/images/dev/cms/intents/icons/sprites/everything-spritev2.png); /** from Twitter ressources */
+    display: inline-block;
+    height: 16px;
+    text-indent: -9999px;
+    width: 16px;
+}
+.widget_twitter .intent-meta a.in-reply-to {
+    background-position: 0 center;
+}
+.widget_twitter .intent-meta a:hover.in-reply-to {
+    background-position: -16px center;
+}
+.widget_twitter .intent-meta a.favorite {
+    background-position: -32px center;
+}
+.widget_twitter .intent-meta a:hover.favorite {
+    background-position: -48px center;
+}
+.widget_twitter .intent-meta a.retweet {
+    background-position: -80px center;
+}
+.widget_twitter .intent-meta a:hover.retweet {
+    background-position: -96px center;
+}

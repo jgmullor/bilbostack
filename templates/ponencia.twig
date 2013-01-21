@@ -1,0 +1,27 @@
+{% extends 'layout.twig' %}
+
+{% block body_class 'ingle single-schedule postid-210' %}
+{% block titulo ponencia.titulo %}
+
+{% block contenido %}
+<div id="core" class="container clearfix">
+    <div id="primary-content">
+        <div class="schedule type-schedule status-publish hentry">
+            <h2 class="post-title">
+                <span class="the-format format-standard">standard</span>
+                Track {{ ponencia.track }} — / {{ ponencia.empieza }} – {{ ponencia.termina }} /
+            </h2>
+
+            <div class="post-content">
+                <p>
+                    <span style="font-size: 18px; font-weight: bold;">{{ ponencia.titulo }}</span><br>
+                    <span style="font-size: 12px; color: #888ccc;">por <a style="font-size: 12px; color: #888ccc; font-weight: bold;" title="{{ ponencia.ponente.nombre }}" href="{{ path('ponente', { 'slug': ponencia.ponente.slug }) }}">{{ ponencia.ponente.nombre }}</a></span>
+                </p>
+
+                <p><strong>Descripción:</strong></p>
+                {{ ponencia.descripcion|raw }}
+            </div><!-- end .post-content -->
+        </div><!-- end .post -->
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends 'layout.twig' %}
+
+{% block body_class 'page page-template-default error' %}
+{% block titulo     'Error' %}
+
+{% block contenido %}
+<div id="core" class="container clearfix">
+    <h1>{{ mensaje|default('Se ha producido un error grave en el servidor.') }}</h1>
+</div>
+{% endblock %}

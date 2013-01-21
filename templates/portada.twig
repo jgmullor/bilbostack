@@ -1,0 +1,40 @@
+{% extends 'layout.twig' %}
+
+{% block body_class 'home page page-template page-template-homepage-php' %}
+{% block titulo     'BilboStack - 26 Enero 2013, Universidad de Deusto, Bilbao' %}
+
+{% block contenido %}
+<div id="talks-full">
+    <div class="container">
+        <div id="description" style="padding-bottom: 40px; font-size: 22px; line-height:25px; text-align: center">
+            <h2 style="font-family: Georgia; font-weight: normal; font-size: 30px">El mejor evento de desarrollo web en Bilbao de 2013</h2>
+
+            La mañana del <b><u>26 de Enero</u></b>, algunos de los profesionales vascos de más alto nivel hablarán sobre los temas tecnológicos más punteros del momento.
+            <br><br>
+            <a class="register-cta" href="#">Registro cerrado</a> <!-- end .register-cta -->
+        </div>
+    </div><!-- end .container -->
+</div><!-- end #talks-full -->
+
+<div id="speakers-full" style="padding-bottom: 30px">
+    <div class="container clearfix">
+        <div id="speakers" class="primary clearfix">
+            {% for ponente in ponentes %}
+            <div class="speaker clearfix">
+                <a href="{{ path('ponente', { 'slug': ponente.slug }) }}">
+                    <h4>{{ ponente.nombre }}</h4>
+                    <img width="150" height="150" src="/img/{{ ponente.slug }}.png" class="attachment-post-thumbnail wp-post-image" alt="{{ ponente.nombre }}" title="{{ ponente.nombre }}">
+                </a>
+            </div><!-- end .speaker -->
+            {% endfor %}
+        </div><!-- end #speakers -->
+
+        <div id="sidebar" class="clearfix">
+            {# widget de Twitter #}
+            <a class="twitter-timeline" href="https://twitter.com/search?q=bilbostack+OR+%23bilbostack+OR+%40bilbostack" data-widget-id="293083219568496640">Tweets about "bilbostack OR #bilbostack OR @bilbostack"</a>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+        </div><!-- end sidebar -->
+    </div><!-- end #container .clearfix -->
+</div><!-- end #speakers-full -->
+{% endblock %}
